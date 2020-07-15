@@ -129,11 +129,11 @@ class AdminDashboard extends React.Component{
                 }}>Full Stack Developer</button> */}
 
                 {this.state.jobTitle.map(title=>{
-                return <button onClick={()=>{this.changeTitle(title)}}>{title}</button>
+                return <button onClick={()=>{this.changeTitle(title)}} className="btn btn-info mr-2">{title}</button>
                 })}
         <h1>{this.state.selectedJob}s</h1>
     <p>List of candidates applied for {this.state.selectedJob} job</p>
-    <table border='1px solid black'>
+    <table className="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -153,19 +153,19 @@ class AdminDashboard extends React.Component{
             <td>{moment(user.createdAt).format('DD/MM/YYYY')}</td>
             <td><button onClick = {()=>{
                 this.handleView(user._id)
-            }}>View Details</button></td>
+            }} className="btn btn-primary">View Details</button></td>
             <td>
                 {/* {user.status} */}
                 {user.status === 'applied' ? (
                 <div>
                 <button onClick={()=>{
                     this.handleStatus(user._id, 'shortlisted')
-                }} >Shortlist</button> <button onClick ={()=>{
+                }} className="btn btn-success">Shortlist</button> <button onClick ={()=>{
                     this.handleStatus(user._id,'rejected')
-                }}>Reject</button>
+                }} className="btn btn-danger">Reject</button>
                 </div>
             ):(
-                <button>{user.status}</button>
+                <button className={`btn btn-${user.status == 'shortlisted' ? 'success' : 'danger'}`}>{user.status}</button>
             )}
             </td>
         </tr>

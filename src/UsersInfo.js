@@ -75,29 +75,52 @@ class UsersInfo extends React.Component{
     render(){
         return(
             <div>
-                {/* {this.state.adminDash && <Redirect to={`/AdminDashboard`} />} */}
-            <form onSubmit={this.handleSubmit}>
-            <h1>Apply for Job</h1>
+                <div className="row">
+                    <div className="col-md-8 offset-md-2">
+                    <h1>Apply for Job</h1>
+                    <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
             <label htmlFor='name'>Full name </label>
-            <input type='text' id='name' name='fullName' value={this.state.fullName} onChange={this.handleChange} /><br/><br/>
+            <input type='text' id='name' name='fullName' value={this.state.fullName} onChange={this.handleChange} className="form-control"/>
+            </div>
+            
+            <div className="form-group">
             <label htmlFor='email'>Email address </label>
-            <input type="text" id='email' name = 'email'value={this.state.email} placeholder='example@gmail.com' onChange={this.handleChange} /><br/><br/>
+            <input type="text" id='email' name = 'email'value={this.state.email} placeholder='example@gmail.com' onChange={this.handleChange} className="form-control"/>
+            </div>
+            
+            <div className="form-group">
             <label htmlFor='number'>Contact Number </label>
-            <input type='text' id='number' name ='contactNumber' value={this.state.contactNumber} placeholder='+91 9876543210' onChange={this.handleChange} /><br/><br/>
+            <input type='text' id='number' name ='contactNumber' value={this.state.contactNumber} placeholder='+91 9876543210' onChange={this.handleChange} className="form-control"/>
+            </div>
+
+            <div className="form-group">
             <label htmlFor='skill'>Applying for Job </label>
-            <select id='skill' value={this.state.job} onChange={this.handleChange} name='job'>
+            <select id='skill' value={this.state.job} onChange={this.handleChange} name='job' className="form-control">
             <option value=''>Select</option>
             <option value='Front-End Developer'>FrontEnd Developer</option>
             <option value='Node.js Developer'>NodeJS Developer</option>
             <option value='MEAN Stack Developer'>MEAN Stack Developer</option>
             <option value='Full Stack Developer'>Full Stack Developer</option>
-            </select><br/><br/>
+            </select>
+            </div>
+            
+            <div className="form-group">
             <label htmlFor='exp'>Experience </label>
-            <input type='text' id='exp' name='exp' value={this.state.exp} placeholder='Experience (2 years, 3 months)' onChange={this.handleChange} /><br/><br/>
+            <input type='text' id='exp' name='exp' value={this.state.exp} placeholder='Experience (2 years, 3 months)' onChange={this.handleChange} className="form-control"/>
+            </div>
+
+            <div className="form-group">
             <label htmlFor='technicalSkills'>Technical Skills </label>
-            <textarea id ='technicalSkills' name='techSkills'rows='5' cols='40'  resize = 'none' value={this.state.techSkills} placeholder='Technical Skills' onChange={this.handleChange} /><br/><br/>
-            <input type='submit' value='send application' />
+            <textarea id ='technicalSkills' name='techSkills'rows='5' cols='40'  resize = 'none' value={this.state.techSkills} placeholder='Technical Skills' onChange={this.handleChange} className="form-control"/>
+            </div>
+            
+            <input type='submit' value='send application' className="btn btn-primary"/>
             </form>
+                    </div>
+                </div>
+                {/* {this.state.adminDash && <Redirect to={`/AdminDashboard`} />} */}
+            
             </div>
         )
     }
